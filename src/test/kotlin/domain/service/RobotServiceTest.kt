@@ -55,11 +55,11 @@ class RobotServiceTest {
 
         @Test
         fun `throws an exception when orientation is not valid`() {
-            assertThrows<IllegalArgumentException>("Position must be >= 0") {
+            assertThrows<IllegalArgumentException>("Orientation must be one of : 'N', 'E', 'W', 'S'") {
                 robotService.initialiseRobot(
                     x = -1,
                     y = 1,
-                    orientation = "E"
+                    orientation = "L"
                 )
 
             }
