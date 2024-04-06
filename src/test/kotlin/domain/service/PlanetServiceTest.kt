@@ -18,9 +18,9 @@ class PlanetServiceTest {
 
     @Test
     fun `creates a planet with valid dimensions`() {
-        val mars = Mars(x = 10, y = 8)
-        assertEquals(10, mars.x)
-        assertEquals(8, mars.y)
+        val mars = planetService.initialiseDimension(x = 10, y = 8)
+        val expectedMars = Mars(x = 10, y = 8)
+        assertEquals(expectedMars, mars)
     }
 
     @Test
