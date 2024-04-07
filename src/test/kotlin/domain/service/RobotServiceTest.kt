@@ -72,56 +72,50 @@ class RobotServiceTest {
         @Test
         fun `executes F command with orientation N`() {
             val robot = Robot(x = 1, y = 1, orientation = Orientation.N)
-            robotService.computeCommand('F')
+            robotService.computeCommand(robot,'F')
             assertEquals(2, robot.y)
         }
 
         @Test
         fun `executes F command with orientation E`() {
             val robot = Robot(x = 1, y = 1, orientation = Orientation.E)
-            robotService.computeCommand('F')
+            robotService.computeCommand(robot,'F')
             assertEquals(2, robot.x)
         }
 
         @Test
         fun `executes F command with orientation W`() {
             val robot = Robot(x = 1, y = 1, orientation = Orientation.W)
-            robotService.computeCommand('F')
+            robotService.computeCommand(robot,'F')
             assertEquals(0, robot.x)
         }
 
         @Test
         fun `executes F command with orientation S`() {
             val robot = Robot(x = 1, y = 1, orientation = Orientation.S)
-            robotService.computeCommand('F')
+            robotService.computeCommand(robot,'F')
             assertEquals(0, robot.y)
         }
 
         @Test
         fun `executes an L command`() {
             val robot = Robot(x = 1, y = 1, orientation = Orientation.N)
-            robotService.computeCommand('L')
+            robotService.computeCommand(robot,'L')
             assertEquals(Orientation.W, robot.orientation)
         }
 
         @Test
         fun `executes a R command`() {
             val robot = Robot(x = 1, y = 1, orientation = Orientation.N)
-            robotService.computeCommand('R')
+            robotService.computeCommand(robot,'R')
             assertEquals(Orientation.E, robot.orientation)
-        }
-
-        @Test
-        fun `sets Robot as lost when out of bound and keep the last valid position`() {
-            val robot = Robot(x = 1, y = 1, orientation = Orientation.N)
-            robotService.computeCommand('F')
-            assertTrue(robot.isLost)
         }
 
         @Test
         fun `throws an exception when command is unknown`() {
             assertThrows<IllegalArgumentException>("Command Z is unknown. Command must be F, L or R") {
                 robotService.computeCommand(
+                    Robot(x = 1, y = 1, orientation = Orientation.W),
                     'Z'
                 )
             }

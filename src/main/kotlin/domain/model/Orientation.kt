@@ -1,8 +1,8 @@
 package org.example.domain.model
 
-enum class Orientation {
-    N,
-    E,
-    S,
-    W,
+enum class Orientation(val value: Int) {
+    N(0),
+    E(1),
+    S(2),
+    W(3),
 }
