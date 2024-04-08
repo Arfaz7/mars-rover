@@ -22,7 +22,7 @@ class RobotServiceTest {
     inner class RobotInitialisation {
         @Test
         fun `creates a robot with valid initial position`() {
-            val robot = robotService.initialiseRobot(x = 0, y = 1, orientation = "E")
+            val robot = robotService.initialiseRobot(x = 0, y = 1, orientation = 'E')
             val expectedRobot = Robot(x = 0, y = 1, orientation = Orientation.E)
             assertThat(robot).isEqualTo(expectedRobot)
         }
@@ -47,7 +47,7 @@ class RobotServiceTest {
                 robotService.initialiseRobot(
                     x = -1,
                     y = 1,
-                    orientation = "E"
+                    orientation = 'E'
                 )
 
             }
@@ -61,7 +61,7 @@ class RobotServiceTest {
                 robotService.initialiseRobot(
                     x = 1,
                     y = 1,
-                    orientation = "L"
+                    orientation = 'L'
                 )
 
             }
