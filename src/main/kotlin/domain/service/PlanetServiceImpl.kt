@@ -4,7 +4,7 @@ import org.example.domain.model.Mars
 
 class PlanetServiceImpl : PlanetService {
     override fun initialiseDimension(x: Int, y: Int): Mars {
-        require(x > 0 && y > 0)
+        require(x > 0 && y > 0) {"Dimensions must be > 0"}
         return Mars(x, y)
     }
 }
